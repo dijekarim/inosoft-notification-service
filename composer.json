@@ -8,7 +8,8 @@
         "php": "^8.2",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "dijekarim/inosoft-university-models": "dev-master"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -69,5 +70,11 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:dijekarim/inosoft-university-models.git"
+        }
+    ]
 }

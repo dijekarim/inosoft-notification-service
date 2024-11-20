@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f72e284aec6964ba6a65b4571522b0b7",
+    "content-hash": "d1166be1391b5b81a8c0da71e7faa72d",
     "packages": [
         {
             "name": "brick/math",
@@ -209,6 +209,42 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.3"
             },
             "time": "2024-07-08T12:26:09+00:00"
+        },
+        {
+            "name": "dijekarim/inosoft-university-models",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dijekarim/inosoft-university-models.git",
+                "reference": "71134529842f833355fbf44b4e4a52e2dbf6f9ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dijekarim/inosoft-university-models/zipball/71134529842f833355fbf44b4e4a52e2dbf6f9ae",
+                "reference": "71134529842f833355fbf44b4e4a52e2dbf6f9ae",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "InosoftUniversity\\SharedModels\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Dimas JK",
+                    "email": "dijekarim@gmail.com",
+                    "role": "Software Engineer"
+                }
+            ],
+            "description": "Shared models for university test case",
+            "homepage": "https://dijekarim.com",
+            "support": {
+                "source": "https://github.com/dijekarim/inosoft-university-models/tree/master",
+                "issues": "https://github.com/dijekarim/inosoft-university-models/issues"
+            },
+            "time": "2024-11-18T09:13:22+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -8898,7 +8934,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "dijekarim/inosoft-university-models": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
