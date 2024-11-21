@@ -1,5 +1,7 @@
 <?php
 
+use App\Jobs\ProcessNotificationJob;
+
 test('example', function () {
     expect(true)->toBeTrue();
 });

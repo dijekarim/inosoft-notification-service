@@ -7,10 +7,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Models\User; // Assuming a User model for notifications
 use App\Notifications\RegistrationNotification;
+use InosoftUniversity\SharedModels\User;
 
-class ProcessNotificationJob implements ShouldQueue
+class SendRegistrationNotificationJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -25,6 +25,7 @@ class ProcessNotificationJob implements ShouldQueue
     {
         // Handle notification logic
         $user = User::find($this->data['user_id']);
+        dump($user);
         if ($user) {
             $user->notify(new RegistrationNotification($this->data));
         }
