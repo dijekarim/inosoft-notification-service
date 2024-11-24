@@ -27,21 +27,25 @@ class UpdateRegisteredStudents implements ShouldQueue
      */
     public function handle(): bool
     {
-        // calculate new number of registered students from registrations.course_id
-        $courseRegisteredStudents = Registration::where('course_id', $this->data['course_id'])->count();
-
         // calculate new number of registered students in departments
-        $courseIds = Course::where('department_id', $this->data['department_id'])->pluck('id');
-        $departmentRegisteredStudents = Registration::whereIn('course_id', $courseIds)->distinct('user_id')->count();
+        $departmentRegisteredStudents = Registration::where('department_id', $this->data['department_id'])
+        ->distinct('user_id')
+        ->count();
 
         // update department
         $department = Department::find($this->data['department_id']);
-        $department->registered_students = $departmentRegisteredStudents;
+        $department->total_students_registered = $departmentRegisteredStudents;
         $department->save();
+        
+        // calculate new number of registered students from registrations.course_id
+        $courseRegisteredStudents = Registration::where('course_id', $this->data['course_id'])
+        ->where('department_id', $this->data['department_id'])
+        ->distinct('user_id')
+        ->count();
         
         // update course
         $course = Course::find($this->data['course_id']);
-        $course->registered_students = $courseRegisteredStudents;
+        $course->total_students_registered = $courseRegisteredStudents;
         $course->save();
         
         // update redis
